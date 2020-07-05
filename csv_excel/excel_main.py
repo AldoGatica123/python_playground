@@ -51,6 +51,13 @@ def create_new_sheet():
     workbook.save('res/excel_writer.xlsx')
 
 
+def remove_sheet():
+    workbook = openpyxl.load_workbook('res/excel_writer.xlsx')
+    print('Removing sheet from excel_writer.xlsx')
+    workbook.remove_sheet(workbook.get_sheet_by_name('woop woop'))
+    workbook.save('res/excel_writer.xlsx')
+
+
 def write_to_excel():
     workbook = xlsxwriter.Workbook('res/excel_writer.xlsx')
     print('Writing to excel_writer.xlsx')
@@ -124,4 +131,12 @@ def make_bar_chart():
     workbook.save('res/excel_writer.xlsx')
 
 
-make_bar_chart()
+def merge_cells():
+    workbook = openpyxl.load_workbook('res/excel_writer.xlsx')
+    print('Merging cells in excel_writer.xlsx')
+    sheet = workbook.get_sheet_by_name('woop woop')
+    sheet.unmerge_cells('A1:D3')
+    workbook.save('res/excel_writer.xlsx')
+
+
+
